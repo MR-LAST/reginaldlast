@@ -5,6 +5,267 @@
   box-sizing: border-box;
 }
 
+/* ==================== */
+/* Navbar Styles */
+/* ==================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(11, 43, 38, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(110, 231, 183, 0.2);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo a {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.logo-dot {
+  color: #6ee7b7;
+  font-size: 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #6ee7b7;
+}
+
+.nav-link.active {
+  color: #6ee7b7;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #6ee7b7;
+}
+
+.nav-toggle {
+  display: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ==================== */
+/* Facebook Posts Section */
+/* ==================== */
+#facebook-posts {
+  margin: 3rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.section-header h2 i {
+  color: #1877f2;
+  margin-right: 0.5rem;
+}
+
+.section-header p {
+  color: #4b5563;
+}
+
+.facebook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.facebook-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.facebook-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.facebook-embed {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f2f5;
+}
+
+.facebook-embed iframe {
+  width: 100%;
+  min-height: 500px;
+}
+
+.placeholder-post {
+  text-align: center;
+  padding: 2rem;
+  color: #65676b;
+}
+
+.placeholder-post i {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ==================== */
+/* Contact Section */
+/* ==================== */
+#contact {
+  margin: 3rem 0 2rem;
+}
+
+.contact-footer {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  border-radius: 2rem;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.contact-footer h2 {
+  font-size: 1.8rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.contact-footer p {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.email-btn {
+  background: #0b2b26;
+  color: white;
+}
+
+.email-btn:hover {
+  background: #1a4a42;
+  transform: translateY(-2px);
+}
+
+.linkedin-btn {
+  background: #0077b5;
+  color: white;
+}
+
+.linkedin-btn:hover {
+  background: #005582;
+  transform: translateY(-2px);
+}
+
+.github-btn {
+  background: #24292e;
+  color: white;
+}
+
+.github-btn:hover {
+  background: #3a3f44;
+  transform: translateY(-2px);
+}
+
+/* ==================== */
+/* Responsive Navbar */
+/* ==================== */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    flex-direction: column;
+    background: #0b2b26;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    padding: 2rem 0;
+    gap: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .facebook-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-btn {
+    width: 80%;
+    justify-content: center;
+  }
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background: #f8fafc;
