@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Reginald Last - Computer Science Graduate & Aspiring Software Engineer. Portfolio showcasing qualifications, experience, and professional journey.">
   <title>Reginald Last | CS Graduate & Software Engineer</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Main Stylesheet -->
+  <!-- Main Stylesheet (you will provide style.css) -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,7 +35,7 @@
   </nav>
 
   <div class="container">
-    <!-- Hero Section with Image Slot -->
+    <!-- Hero Section -->
     <section id="home">
       <div class="hero">
         <div class="hero-main">
@@ -47,8 +48,8 @@
               <span><i class="fas fa-map-marker-alt"></i> Lusaka, Zambia</span>
             </div>
             <div class="hero-contact">
-              <a href="https://github.com/MR-LAST/Public-Projects" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-              <a href="https://www.linkedin.com/in/reginald-last-9097a3298/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+              <a href="https://github.com/MR-LAST/Public-Projects" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://www.linkedin.com/in/reginald-last-9097a3298/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
             <div class="button-group">
               <button id="contactBtn" class="btn-outline-light"><i class="fas fa-paper-plane"></i> Contact me</button>
@@ -62,7 +63,7 @@
       </div>
     </section>
 
-    <!-- main two-column layout -->
+    <!-- Main two-column layout -->
     <div class="two-col">
       <!-- LEFT COLUMN -->
       <div>
@@ -210,37 +211,70 @@
       </div>
     </div>
 
-    <!-- Facebook Posts Section -->
+    <!-- Facebook Posts Section - Professionally Structured with responsive grid and proper fallbacks -->
     <section id="facebook-posts">
       <div class="section-header">
         <h2><i class="fab fa-facebook"></i> Featured Facebook Posts</h2>
         <p>Check out my latest updates and activities</p>
       </div>
       <div class="facebook-grid">
-        <!-- Post 1 - Replace YOUR_EMBED_CODE_HERE with your actual Facebook embed code -->
+        <!-- Post 1 - Structured with proper embed and loading="lazy" for performance -->
         <div class="facebook-card">
-          <div class="facebook-embed">
-            <!-- PASTE YOUR FIRST FACEBOOK EMBED CODE HERE -->
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1108344594040561%26set%3Da.728342495374108%26type%3D3&show_text=true&width=500" width="500" height="703" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          <div class="facebook-embed-wrapper">
+            <iframe 
+              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1108344594040561%26set%3Da.728342495374108%26type%3D3&show_text=true&width=500" 
+              width="100%" 
+              height="650" 
+              style="border:none; overflow:hidden; min-height: 500px;" 
+              scrolling="no" 
+              frameborder="0" 
+              allowfullscreen="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+              loading="lazy"
+              title="Facebook post 1">
+            </iframe>
           </div>
         </div>
         
-        <!-- Post 2 - Add more Facebook posts here -->
+        <!-- Post 2 -->
         <div class="facebook-card">
-          <div class="facebook-embed">
-            <!-- PASTE YOUR SECOND FACEBOOK EMBED CODE HERE -->
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1104149374460083%26set%3Da.749684656573225%26type%3D3&show_text=true&width=500" width="500" height="819" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>          
-            </div>
+          <div class="facebook-embed-wrapper">
+            <iframe 
+              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1104149374460083%26set%3Da.749684656573225%26type%3D3&show_text=true&width=500" 
+              width="100%" 
+              height="650" 
+              style="border:none; overflow:hidden; min-height: 500px;" 
+              scrolling="no" 
+              frameborder="0" 
+              allowfullscreen="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"
+              title="Facebook post 2">
+            </iframe>
           </div>
         </div>
 
         <!-- Post 3 -->
         <div class="facebook-card">
-          <div class="facebook-embed">
-            
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1112113753663645%26set%3Da.728342495374108%26type%3D3&show_text=true&width=500" width="500" height="645" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          <div class="facebook-embed-wrapper">
+            <iframe 
+              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1112113753663645%26set%3Da.728342495374108%26type%3D3&show_text=true&width=500" 
+              width="100%" 
+              height="650" 
+              style="border:none; overflow:hidden; min-height: 500px;" 
+              scrolling="no" 
+              frameborder="0" 
+              allowfullscreen="true" 
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"
+              title="Facebook post 3">
+            </iframe>
           </div>
         </div>
+      </div>
+      <!-- Optional: note to update embed codes -->
+      <div class="fb-note">
+        <i class="fas fa-info-circle"></i> Facebook posts dynamically load. For latest updates, visit my profile.
       </div>
     </section>
 
@@ -251,8 +285,8 @@
         <p>I'm always open to new opportunities and collaborations</p>
         <div class="contact-buttons">
           <a href="mailto:reginaldlast19@gmail.com" class="contact-btn email-btn"><i class="fas fa-envelope"></i> Email Me</a>
-          <a href="https://www.linkedin.com/in/reginald-last-9097a3298/" target="_blank" class="contact-btn linkedin-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="https://github.com/MR-LAST/Public-Projects" target="_blank" class="contact-btn github-btn"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/reginald-last-9097a3298/" target="_blank" rel="noopener noreferrer" class="contact-btn linkedin-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/MR-LAST/Public-Projects" target="_blank" rel="noopener noreferrer" class="contact-btn github-btn"><i class="fab fa-github"></i> GitHub</a>
         </div>
       </div>
     </section>
@@ -262,7 +296,24 @@
     </footer>
   </div>
 
-  <!-- Main JavaScript -->
+  <!-- Main JavaScript (you will provide main.js) -->
   <script src="main.js"></script>
+  <!-- Optional inline script for basic fallback if needed, but main.js handles core functionality -->
+  <script>
+    // Ensure that if main.js fails to load, basic mobile nav still works gracefully.
+    // However main.js is expected to contain full interactivity (navbar toggle, active links, contact button scroll).
+    document.addEventListener('DOMContentLoaded', function() {
+      // Simple fallback for contact button if main.js hasn't bound it
+      var contactBtn = document.getElementById('contactBtn');
+      if (contactBtn && typeof window.contactButtonHandler === 'undefined') {
+        contactBtn.addEventListener('click', function() {
+          var contactSection = document.getElementById('contact');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
