@@ -1,310 +1,59 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Reginald Last | CS Graduate & Aspiring Software Engineer</title>
-  <!-- Google Fonts & simple reset -->
+  <title>Reginald Last | CS Graduate & Software Engineer</title>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free icons) -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-
-    /* header / hero section */
-    .hero {
-      background: linear-gradient(135deg, #0b2b26 0%, #123b34 100%);
-      color: white;
-      border-radius: 2rem;
-      padding: 2.5rem 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-tag {
-      font-size: 1.25rem;
-      font-weight: 500;
-      opacity: 0.9;
-      margin-bottom: 1rem;
-      border-left: 3px solid #6ee7b7;
-      padding-left: 1rem;
-    }
-
-    .hero-contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin: 1.5rem 0 1rem;
-      font-size: 0.95rem;
-    }
-
-    .hero-contact a, .hero-contact span {
-      color: #e2e8f0;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: color 0.2s;
-    }
-
-    .hero-contact a:hover {
-      color: #a7f3d0;
-    }
-
-    .btn-outline-light {
-      border: 1px solid #cbd5e1;
-      border-radius: 40px;
-      padding: 0.5rem 1.2rem;
-      background: rgba(255,255,255,0.05);
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s;
-    }
-
-    .btn-outline-light:hover {
-      background: white;
-      color: #0b2b26;
-      border-color: white;
-    }
-
-    /* grid layout */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 2.2fr;
-      gap: 2rem;
-    }
-
-    /* card style */
-    .card {
-      background: white;
-      border-radius: 1.5rem;
-      padding: 1.6rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
-      border: 1px solid #eef2f6;
-      transition: transform 0.1s ease;
-    }
-
-    .card-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      border-left: 4px solid #2c7a5e;
-      padding-left: 0.9rem;
-    }
-
-    .card-title i {
-      color: #2c7a5e;
-      font-size: 1.3rem;
-    }
-
-    .info-list {
-      list-style: none;
-      margin-top: 0.5rem;
-    }
-
-    .info-list li {
-      margin-bottom: 0.7rem;
-      display: flex;
-      align-items: baseline;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .info-label {
-      font-weight: 700;
-      min-width: 100px;
-      color: #1e3a3a;
-    }
-
-    .lang-badge {
-      background: #eef2ff;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      display: inline-block;
-      margin-right: 0.5rem;
-    }
-
-    .interest-tag {
-      background: #e6f7f0;
-      color: #115e4a;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      display: inline-block;
-      margin: 0.25rem 0.4rem 0.25rem 0;
-    }
-
-    /* timeline / qualification */
-    .qual-item {
-      border-bottom: 1px solid #e9edf2;
-      padding: 1rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .qual-year {
-      font-weight: 700;
-      color: #2c7a5e;
-      min-width: 100px;
-    }
-
-    .qual-desc {
-      flex: 1;
-      font-weight: 500;
-    }
-
-    .qual-institution {
-      font-size: 0.85rem;
-      color: #4b5563;
-      margin-top: 0.2rem;
-    }
-
-    .cert-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.8rem;
-    }
-
-    .cert-badge {
-      background: #f1f5f9;
-      border-radius: 30px;
-      padding: 0.25rem 1rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-    }
-
-    .exp-item {
-      margin-bottom: 1.4rem;
-    }
-
-    .exp-title {
-      font-weight: 700;
-      font-size: 1rem;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .ref-item {
-      background: #f8fafd;
-      border-radius: 1rem;
-      padding: 0.8rem;
-      margin-bottom: 0.8rem;
-    }
-
-    hr {
-      margin: 1rem 0;
-      border: none;
-      height: 1px;
-      background: #e2e8f0;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      padding: 1.5rem;
-      border-top: 1px solid #e2e8f0;
-      color: #4b5563;
-      font-size: 0.8rem;
-    }
-
-    @media (max-width: 880px) {
-      .two-col {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-
-    .button-group {
-      margin-top: 1.2rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .profile-text {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
-      color: #1f2937;
-    }
-  </style>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-  <!-- Hero Section -->
+  <!-- Hero Section with Image Slot -->
   <div class="hero">
-    <h1>REGINALD LAST</h1>
-    <div class="hero-tag">Computer Science Graduate | Aspiring Software Engineer & Technology Consultant</div>
-    <div class="hero-contact">
-      <span><i class="fas fa-phone-alt"></i> +260 978 371837 / +260 954 963943</span>
-      <a href="mailto:reginaldlast19@gmail.com"><i class="fas fa-envelope"></i> reginaldlast19@gmail.com</a>
-      <span><i class="fas fa-map-marker-alt"></i> Lusaka, Zambia</span>
-    </div>
-    <div class="hero-contact">
-      <a href="https://github.com/MR-LAST/Public-Projects" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://www.linkedin.com/in/reginald-last-9097a3298/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    </div>
-    <div class="button-group">
-      <a href="#" class="btn-outline-light" id="contactBtn"><i class="fas fa-paper-plane"></i> Contact me</a>
+    <div class="hero-main">
+      <div class="hero-text">
+        <h1>REGINALD LAST</h1>
+        <div class="hero-tag">Computer Science Graduate | Aspiring Software Engineer & Technology Consultant</div>
+        <div class="hero-contact">
+          <span><i class="fas fa-phone-alt"></i> +260 978 371837 / +260 954 963943</span>
+          <a href="mailto:reginaldlast19@gmail.com"><i class="fas fa-envelope"></i> reginaldlast19@gmail.com</a>
+          <span><i class="fas fa-map-marker-alt"></i> Lusaka, Zambia</span>
+        </div>
+        <div class="hero-contact">
+          <a href="https://github.com/MR-LAST/Public-Projects" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/reginald-last-9097a3298/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+        <div class="button-group">
+          <button id="contactBtn" class="btn-outline-light"><i class="fas fa-paper-plane"></i> Contact me</button>
+        </div>
+      </div>
+      <div class="hero-image-slot">
+        <!-- Image slot: replace 'profile-placeholder.jpg' with your actual image file -->
+        <img src="profile-placeholder.jpg" alt="Reginald Last profile" id="profileImg" onerror="this.onerror=null; this.src='https://placehold.co/400x500?text=Reginald+Last';">
+        <div class="img-overlay-text">Reginald Last</div>
+      </div>
     </div>
   </div>
 
   <!-- main two-column layout -->
   <div class="two-col">
-    <!-- LEFT COLUMN: profile, personal, languages, interests, references -->
+    <!-- LEFT COLUMN: profile, personal, languages, interests -->
     <div>
       <!-- Profile summary card -->
       <div class="card">
         <div class="card-title">
           <i class="fas fa-user-astronaut"></i> Profile
         </div>
-        <p style="margin-bottom: 0.5rem;">Reginald Last is a recent computer science graduate from The University of Zambia, where he earned a Bachelor of Science in Computer Science (Systems Engineering). He also holds a Diploma in Project Management from Oxford Home Study (online). He is an aspiring software engineer and technology consultant with a strong interest in software development, systems analysis, and applying structured methodologies to technical projects.</p>
-        <p style="margin-top: 0.75rem;">During his academic training, Reginald has worked on team-based coding projects using version control (Git) and agile frameworks to simulate real-world development environments. He has also coordinated small-scale tech initiatives, applying his project management training to help define scope, streamline workflows, and improve collaboration.</p>
-        <p style="margin-top: 0.75rem;">Reginald is now seeking an entry-level software engineering or junior developer role where he can combine his technical foundation with organizational skills — bridging technology and business needs, with a growing focus on user-centered design, process optimization, and impact-driven sectors such as agritech, climate tech, and public health data systems.</p>
+        <p>Reginald Last is a recent computer science graduate from The University of Zambia, where he earned a Bachelor of Science in Computer Science (Systems Engineering). He also holds a Diploma in Project Management from Oxford Home Study (online). He is an aspiring software engineer and technology consultant with a strong interest in software development, systems analysis, and applying structured methodologies to technical projects.</p>
+        <p class="profile-margin">During his academic training, Reginald has worked on team-based coding projects using version control (Git) and agile frameworks to simulate real-world development environments. He has also coordinated small-scale tech initiatives, applying his project management training to help define scope, streamline workflows, and improve collaboration.</p>
+        <p class="profile-margin">Reginald is now seeking an entry-level software engineering or junior developer role where he can combine his technical foundation with organizational skills — bridging technology and business needs, with a growing focus on user-centered design, process optimization, and impact-driven sectors such as agritech, climate tech, and public health data systems.</p>
       </div>
 
       <!-- Personal & languages -->
@@ -337,29 +86,9 @@
           <span class="interest-tag"><i class="fas fa-chart-simple"></i> Data analytics & healthcare delivery</span>
         </div>
       </div>
-
-      <!-- References -->
-      <div class="card">
-        <div class="card-title">
-          <i class="fas fa-address-card"></i> References
-        </div>
-        <div class="ref-item">
-          <strong>Nsama Musonda Kearns</strong> (CEO, Care For Nature Zambia)<br>
-          <i class="fas fa-phone-alt"></i> +260 975 638175<br>
-          <i class="fas fa-envelope"></i> carefornaturezambia@gmail.com
-        </div>
-        <div class="ref-item">
-          <strong>Mboo Dominic</strong> (Director, Trident Marketing Limited)<br>
-          <i class="fas fa-phone-alt"></i> +260 978 668842
-        </div>
-        <div class="ref-item">
-          <strong>Benson Nyirenda</strong> (Director, Spread Creatives Media Limited)<br>
-          <i class="fas fa-phone-alt"></i> +260 973 222168
-        </div>
-      </div>
     </div>
 
-    <!-- RIGHT COLUMN: qualifications, experience, certificates, additional -->
+    <!-- RIGHT COLUMN: qualifications, experience, certificates, core competencies -->
     <div>
       <!-- Main qualifications (degree & diploma) -->
       <div class="card">
@@ -399,13 +128,13 @@
         <div class="card-title">
           <i class="fas fa-school"></i> Basic & Secondary Education
         </div>
-        <ul style="margin-left: 1.2rem; color: #2d3e50;">
+        <ul class="simple-list">
           <li>Grade 9 Certificate – Great North Road Academy, Lusaka (2014-2016)</li>
           <li>Grade 12 Certificate – Makeni West Wing, Lusaka (2017-2020)</li>
         </ul>
       </div>
 
-      <!-- Work & Volunteer Experience -->
+      <!-- Work & Volunteer Experience (References removed) -->
       <div class="card">
         <div class="card-title">
           <i class="fas fa-briefcase"></i> Experience
@@ -413,35 +142,35 @@
         <div class="exp-item">
           <div class="exp-title">
             <span><i class="fas fa-tree"></i> Monitoring and Evaluation Officer (Volunteer)</span>
-            <span style="font-weight: 500; color:#2c7a5e;">2021 – 2023</span>
+            <span class="exp-date">2021 – 2023</span>
           </div>
           <div>Care For Nature Zambia – Supported M&E frameworks, data collection, and project impact assessment.</div>
         </div>
         <div class="exp-item">
           <div class="exp-title">
             <span><i class="fas fa-chart-line"></i> Consultant (Part-Time)</span>
-            <span style="font-weight: 500; color:#2c7a5e;">2023 – 2024</span>
+            <span class="exp-date">2023 – 2024</span>
           </div>
           <div>Trident Marketing Limited – Provided tech advisory, streamlined reporting, and digital tools integration.</div>
         </div>
         <div class="exp-item">
           <div class="exp-title">
             <span><i class="fas fa-users"></i> Public Relations Officer (Part-Time)</span>
-            <span style="font-weight: 500; color:#2c7a5e;">2024 – 2025</span>
+            <span class="exp-date">2024 – 2025</span>
           </div>
           <div>Spread Creatives Media – Coordinated communications, managed stakeholder relations, and supported creative campaigns.</div>
         </div>
-        <div class="profile-text" style="font-size: 0.85rem; background: #f1f9f5; padding: 0.7rem; border-radius: 1rem;">
+        <div class="tech-note">
           <i class="fas fa-code"></i> <strong>Technical exposure:</strong> Version control (Git), Agile frameworks, project scope definition, and cross-functional team collaboration.
         </div>
       </div>
 
-      <!-- Tech and soft skills snapshot -->
+      <!-- Core Competencies -->
       <div class="card">
         <div class="card-title">
           <i class="fas fa-laptop-code"></i> Core Competencies
         </div>
-        <div class="cert-list" style="margin-bottom: 0.5rem;">
+        <div class="cert-list">
           <span class="cert-badge">Git & GitHub</span>
           <span class="cert-badge">Agile / Scrum</span>
           <span class="cert-badge">Systems Analysis</span>
@@ -450,42 +179,17 @@
           <span class="cert-badge">CCNA Networking Basics</span>
           <span class="cert-badge">Linux Fundamentals</span>
         </div>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Passionate about building scalable solutions, clean code, and using tech for social impact. Actively learning full-stack development and cloud fundamentals.</p>
+        <p class="competency-text">Passionate about building scalable solutions, clean code, and using tech for social impact. Actively learning full-stack development and cloud fundamentals.</p>
       </div>
     </div>
   </div>
 
-  <!-- Footer & simple contact modal / alert -->
   <footer>
     <i class="far fa-copyright"></i> 2025 Reginald Last — Computer Science Graduate & Aspiring Software Engineer. Built with <i class="fas fa-heart" style="color:#2c7a5e;"></i> for opportunities & collaboration.
   </footer>
 </div>
 
-<!-- Simple interactive script for contact simulation -->
-<script>
-  (function() {
-    const contactBtn = document.getElementById('contactBtn');
-    if (contactBtn) {
-      contactBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // show a friendly prompt with email contact
-        const userConfirmed = confirm("📧 Reach out to Reginald Last:\nEmail: reginaldlast19@gmail.com\nPhone: +260 978 371837\n\nClick OK to copy email address?");
-        if (userConfirmed) {
-          navigator.clipboard.writeText("reginaldlast19@gmail.com").then(() => {
-            alert("Email address copied to clipboard! Feel free to connect.");
-          }).catch(() => {
-            alert("Email: reginaldlast19@gmail.com | Phone: +260978371837");
-          });
-        }
-      });
-    }
-
-    // Optional: additional smoothness for any external links (GitHub/LinkedIn open in new tab)
-    const githubLink = document.querySelector('a[href*="github.com"]');
-    const linkedinLink = document.querySelector('a[href*="linkedin.com"]');
-    if(githubLink) githubLink.setAttribute('target', '_blank');
-    if(linkedinLink) linkedinLink.setAttribute('target', '_blank');
-  })();
-</script>
+<!-- Main JavaScript -->
+<script src="main.js"></script>
 </body>
 </html>
