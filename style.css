@@ -5,17 +5,31 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f0f4f8;
+  color: #0a1e3c;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
 /* ==================== */
-/* Navbar Styles */
+/* Navbar Styles - Blue Theme */
 /* ==================== */
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(11, 43, 38, 0.95);
+  background: rgba(10, 30, 60, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(110, 231, 183, 0.2);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -37,7 +51,7 @@
 }
 
 .logo-dot {
-  color: #6ee7b7;
+  color: #3b82f6;
   font-size: 2rem;
 }
 
@@ -56,11 +70,11 @@
 }
 
 .nav-link:hover {
-  color: #6ee7b7;
+  color: #60a5fa;
 }
 
 .nav-link.active {
-  color: #6ee7b7;
+  color: #60a5fa;
 }
 
 .nav-link.active::after {
@@ -70,7 +84,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #6ee7b7;
+  background: #3b82f6;
 }
 
 .nav-toggle {
@@ -81,208 +95,10 @@
 }
 
 /* ==================== */
-/* Facebook Posts Section */
+/* Hero Section - Blue Theme */
 /* ==================== */
-#facebook-posts {
-  margin: 3rem 0;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.section-header h2 {
-  font-size: 2rem;
-  color: #0f172a;
-  margin-bottom: 0.5rem;
-}
-
-.section-header h2 i {
-  color: #1877f2;
-  margin-right: 0.5rem;
-}
-
-.section-header p {
-  color: #4b5563;
-}
-
-.facebook-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-
-.facebook-card {
-  background: white;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.facebook-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-
-.facebook-embed {
-  width: 100%;
-  min-height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f0f2f5;
-}
-
-.facebook-embed iframe {
-  width: 100%;
-  min-height: 500px;
-}
-
-.placeholder-post {
-  text-align: center;
-  padding: 2rem;
-  color: #65676b;
-}
-
-.placeholder-post i {
-  margin-bottom: 1rem;
-  display: block;
-}
-
-/* ==================== */
-/* Contact Section */
-/* ==================== */
-#contact {
-  margin: 3rem 0 2rem;
-}
-
-.contact-footer {
-  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
-  border-radius: 2rem;
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
-.contact-footer h2 {
-  font-size: 1.8rem;
-  color: #0f172a;
-  margin-bottom: 0.5rem;
-}
-
-.contact-footer p {
-  color: #4b5563;
-  margin-bottom: 1.5rem;
-}
-
-.contact-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.contact-btn {
-  padding: 0.8rem 1.8rem;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.email-btn {
-  background: #0b2b26;
-  color: white;
-}
-
-.email-btn:hover {
-  background: #1a4a42;
-  transform: translateY(-2px);
-}
-
-.linkedin-btn {
-  background: #0077b5;
-  color: white;
-}
-
-.linkedin-btn:hover {
-  background: #005582;
-  transform: translateY(-2px);
-}
-
-.github-btn {
-  background: #24292e;
-  color: white;
-}
-
-.github-btn:hover {
-  background: #3a3f44;
-  transform: translateY(-2px);
-}
-
-/* ==================== */
-/* Responsive Navbar */
-/* ==================== */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
-  
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    flex-direction: column;
-    background: #0b2b26;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    padding: 2rem 0;
-    gap: 1.5rem;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  }
-  
-  .nav-menu.active {
-    left: 0;
-  }
-  
-  .facebook-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .contact-btn {
-    width: 80%;
-    justify-content: center;
-  }
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
-  line-height: 1.5;
-  scroll-behavior: smooth;
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-}
-
-/* Hero Section with Image Slot */
 .hero {
-  background: linear-gradient(135deg, #0b2b26 0%, #123b34 100%);
+  background: linear-gradient(135deg, #0a1e3c 0%, #1e3a5f 100%);
   color: white;
   border-radius: 2rem;
   padding: 2rem 2rem;
@@ -316,7 +132,7 @@ body {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #6ee7b7;
+  border: 4px solid #3b82f6;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
   background-color: #e2e8f0;
   transition: transform 0.2s ease;
@@ -330,7 +146,7 @@ body {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #cbd5e6;
+  color: #93c5fd;
   letter-spacing: 0.5px;
 }
 
@@ -346,7 +162,7 @@ body {
   font-weight: 500;
   opacity: 0.9;
   margin-bottom: 1rem;
-  border-left: 3px solid #6ee7b7;
+  border-left: 3px solid #3b82f6;
   padding-left: 1rem;
 }
 
@@ -369,14 +185,14 @@ body {
 }
 
 .hero-contact a:hover {
-  color: #a7f3d0;
+  color: #93c5fd;
 }
 
 .btn-outline-light {
-  border: 1px solid #cbd5e1;
+  border: 1px solid #93c5fd;
   border-radius: 40px;
   padding: 0.6rem 1.4rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(59, 130, 246, 0.1);
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -389,9 +205,9 @@ body {
 }
 
 .btn-outline-light:hover {
-  background: white;
-  color: #0b2b26;
-  border-color: white;
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
 }
 
 .button-group {
@@ -415,7 +231,7 @@ body {
   padding: 1.6rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
-  border: 1px solid #eef2f6;
+  border: 1px solid #e2e8f0;
   transition: transform 0.1s ease;
 }
 
@@ -426,12 +242,12 @@ body {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  border-left: 4px solid #2c7a5e;
+  border-left: 4px solid #3b82f6;
   padding-left: 0.9rem;
 }
 
 .card-title i {
-  color: #2c7a5e;
+  color: #3b82f6;
   font-size: 1.3rem;
 }
 
@@ -457,22 +273,23 @@ body {
 .info-label {
   font-weight: 700;
   min-width: 100px;
-  color: #1e3a3a;
+  color: #1e3a5f;
 }
 
 .lang-badge {
-  background: #eef2ff;
+  background: #dbeafe;
   padding: 0.2rem 0.8rem;
   border-radius: 30px;
   font-size: 0.8rem;
   font-weight: 500;
   display: inline-block;
   margin-right: 0.5rem;
+  color: #1e40af;
 }
 
 .interest-tag {
-  background: #e6f7f0;
-  color: #115e4a;
+  background: #dbeafe;
+  color: #1e3a8a;
   padding: 0.3rem 1rem;
   border-radius: 40px;
   font-size: 0.8rem;
@@ -497,7 +314,7 @@ body {
 
 .qual-year {
   font-weight: 700;
-  color: #2c7a5e;
+  color: #2563eb;
   min-width: 100px;
 }
 
@@ -521,18 +338,18 @@ body {
 }
 
 .cert-badge {
-  background: #f1f5f9;
+  background: #eef2ff;
   border-radius: 30px;
   padding: 0.3rem 1rem;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #1e293b;
+  color: #1e40af;
 }
 
 /* Experience items */
 .exp-item {
   margin-bottom: 1.4rem;
-  border-left: 2px solid #e2e8f0;
+  border-left: 2px solid #bfdbfe;
   padding-left: 1rem;
 }
 
@@ -547,22 +364,23 @@ body {
 
 .exp-date {
   font-weight: 500;
-  color: #2c7a5e;
+  color: #2563eb;
   font-size: 0.85rem;
 }
 
 .tech-note {
   font-size: 0.85rem;
-  background: #f1f9f5;
+  background: #eff6ff;
   padding: 0.7rem;
   border-radius: 1rem;
   margin-top: 0.8rem;
+  color: #1e3a8a;
 }
 
 /* Simple list for education */
 .simple-list {
   margin-left: 1.2rem;
-  color: #2d3e50;
+  color: #1e3a5f;
 }
 
 .simple-list li {
@@ -575,44 +393,265 @@ body {
   color: #334155;
 }
 
+/* ==================== */
+/* Facebook Posts Section - Fixed Frame Styling */
+/* ==================== */
+#facebook-posts {
+  margin: 3rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: #0a1e3c;
+  margin-bottom: 0.5rem;
+}
+
+.section-header h2 i {
+  color: #1877f2;
+  margin-right: 0.5rem;
+}
+
+.section-header p {
+  color: #4b5563;
+}
+
+.facebook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.facebook-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.facebook-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.facebook-embed {
+  width: 100%;
+  min-height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 1rem;
+}
+
+.facebook-embed iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Ensure Facebook iframes display properly */
+.facebook-embed iframe[src*="facebook.com"] {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.placeholder-post {
+  text-align: center;
+  padding: 2rem;
+  color: #65676b;
+  background: #f0f2f5;
+  border-radius: 1rem;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholder-post i {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ==================== */
+/* Contact Section - Blue Theme */
+/* ==================== */
+#contact {
+  margin: 3rem 0 2rem;
+}
+
+.contact-footer {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-radius: 2rem;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.contact-footer h2 {
+  font-size: 1.8rem;
+  color: #0a1e3c;
+  margin-bottom: 0.5rem;
+}
+
+.contact-footer p {
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.email-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.email-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.linkedin-btn {
+  background: #0077b5;
+  color: white;
+}
+
+.linkedin-btn:hover {
+  background: #005582;
+  transform: translateY(-2px);
+}
+
+.github-btn {
+  background: #24292e;
+  color: white;
+}
+
+.github-btn:hover {
+  background: #3a3f44;
+  transform: translateY(-2px);
+}
+
 /* Footer */
 footer {
   text-align: center;
   margin-top: 1.5rem;
   padding: 1.5rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #cbd5e1;
   color: #4b5563;
   font-size: 0.8rem;
 }
 
-/* Responsive */
+/* ==================== */
+/* Responsive Styles */
+/* ==================== */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    flex-direction: column;
+    background: #0a1e3c;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    padding: 2rem 0;
+    gap: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .facebook-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .facebook-embed {
+    min-height: 480px;
+  }
+  
+  .facebook-embed iframe {
+    min-height: 460px;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-btn {
+    width: 80%;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 880px) {
   .two-col {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+  
   .hero h1 {
     font-size: 2rem;
   }
+  
   .hero-main {
     flex-direction: column;
     text-align: center;
   }
+  
   .hero-text {
     text-align: center;
   }
+  
   .hero-tag {
     border-left: none;
-    border-top: 2px solid #6ee7b7;
+    border-top: 3px solid #3b82f6;
     padding-top: 0.5rem;
     padding-left: 0;
   }
+  
   .hero-contact {
     justify-content: center;
   }
+  
   .button-group {
     justify-content: center;
   }
+  
   .card-title {
     font-size: 1.25rem;
   }
@@ -622,13 +661,28 @@ footer {
   .container {
     padding: 1rem;
   }
+  
   .hero {
     padding: 1.5rem;
   }
+  
   .card {
     padding: 1.2rem;
   }
+  
   .qual-year {
     min-width: 80px;
+  }
+  
+  .facebook-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .facebook-embed {
+    min-height: 420px;
+  }
+  
+  .facebook-embed iframe {
+    min-height: 400px;
   }
 }
