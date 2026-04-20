@@ -686,3 +686,225 @@ footer {
     min-height: 400px;
   }
 }
+/* ==================== */
+/* ADD TO EXISTING style.css - Projects, Articles, Affiliations Grids */
+/* ==================== */
+
+.projects-grid,
+.articles-grid,
+.affiliations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.project-card,
+.article-card,
+.affiliation-card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+}
+
+.project-card:hover,
+.article-card:hover,
+.affiliation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+}
+
+.project-title,
+.article-title,
+.affiliation-company {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0a1e3c;
+  margin-bottom: 0.5rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.tech-badge {
+  background: #eef2ff;
+  padding: 0.25rem 0.85rem;
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.project-description,
+.article-summary,
+.affiliation-description {
+  color: #334155;
+  line-height: 1.6;
+  margin: 1rem 0;
+  flex: 1;
+}
+
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0a1e3c;
+  color: white;
+  padding: 0.7rem 1.25rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+  width: fit-content;
+}
+
+.btn-github:hover {
+  background: #2563eb;
+}
+
+.article-meta {
+  font-size: 0.75rem;
+  color: #6c7a8a;
+  margin: 0.5rem 0;
+}
+
+.btn-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.btn-read-more:hover {
+  text-decoration: underline;
+}
+
+.affiliation-role {
+  font-weight: 600;
+  color: #2563eb;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.affiliation-period {
+  font-size: 0.8rem;
+  color: #6c7a8a;
+  margin-bottom: 0.75rem;
+}
+
+.affiliation-links {
+  margin-top: 1rem;
+}
+
+.affiliation-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.affiliation-link:hover {
+  text-decoration: underline;
+}
+
+/* Page headers */
+.page-header {
+  text-align: center;
+  margin: 1rem 0 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.2rem;
+  color: #0a1e3c;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #4b5563;
+}
+
+/* Facebook posts wrapper fix */
+.facebook-embed-wrapper {
+  width: 100%;
+  min-height: 550px;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.facebook-embed-wrapper iframe {
+  width: 100%;
+  height: 550px;
+  border: none;
+  display: block;
+}
+
+.fb-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6c7a8a;
+  margin-top: 1.5rem;
+}
+
+/* Improved mobile nav */
+@media (max-width: 768px) {
+  .projects-grid,
+  .articles-grid,
+  .affiliations-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .facebook-embed-wrapper iframe {
+    height: 480px;
+  }
+  
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Toast message for copy to clipboard */
+.custom-toast-message {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0a1e3c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Inter', sans-serif;
+  pointer-events: none;
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
