@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Reginald Last - Technical Articles and Insights">
+  <title>Articles | Reginald Last</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">RL<span class="logo-dot">.</span></a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#qualifications" class="nav-link">Qualifications</a></li>
+        <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="articles.html" class="nav-link active">Articles</a></li>
+        <li><a href="affiliations.html" class="nav-link">Affiliations</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section style="padding: 2rem 0 1rem;">
+      <div class="section-header">
+        <h1><i class="fas fa-newspaper"></i> Technical Articles</h1>
+        <p>Insights on software engineering, agritech, and technology consulting</p>
+      </div>
+    </section>
+
+    <div class="articles-grid">
+      <!-- Article 1 -->
+      <div class="article-card">
+        <div class="article-title">Bridging the Digital Divide: Offline-First Applications for Rural Africa</div>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> March 2025 &nbsp;|&nbsp; <i class="far fa-clock"></i> 8 min read</div>
+        <div class="article-summary">
+          Explores strategies for building resilient applications that work without constant internet connectivity. Covers local storage synchronization, conflict resolution, and progressive web app patterns. Draws from field research in rural Zambian communities where network coverage remains intermittent. Discusses real-world implementations in health and agriculture sectors, including lessons learned from pilot deployments and user feedback.
+        </div>
+        <a href="#" class="btn-read-more"><i class="fas fa-book-open"></i> Read Full Article</a>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="article-card">
+        <div class="article-title">From CS Graduate to Consultant: Essential Non-Technical Skills</div>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> January 2025 &nbsp;|&nbsp; <i class="far fa-clock"></i> 6 min read</div>
+        <div class="article-summary">
+          Reflections on transitioning from academic computer science into technology consulting. Highlights project management frameworks, stakeholder communication, requirements gathering, and translating technical concepts for business audiences. Includes practical advice on building client trust and managing expectations in cross-functional teams. Based on personal experience working with startups and marketing agencies in Lusaka.
+        </div>
+        <a href="#" class="btn-read-more"><i class="fas fa-book-open"></i> Read Full Article</a>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="article-card">
+        <div class="article-title">Low-Cost IoT for Smallholder Farmers: A Technical Review</div>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> November 2024 &nbsp;|&nbsp; <i class="far fa-clock"></i> 10 min read</div>
+        <div class="article-summary">
+          Comparative analysis of affordable IoT sensors, microcontrollers, and connectivity options suitable for agricultural monitoring in developing economies. Tests LoRaWAN, GSM, and offline logging approaches. Evaluates cost-to-benefit ratios for soil moisture, weather stations, and livestock tracking. Provides open-source recommendations and a framework for deploying sustainable sensor networks with community maintenance models.
+        </div>
+        <a href="#" class="btn-read-more"><i class="fas fa-book-open"></i> Read Full Article</a>
+      </div>
+
+      <!-- Article 4 -->
+      <div class="article-card">
+        <div class="article-title">Version Control Best Practices for Junior Developers</div>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> September 2024 &nbsp;|&nbsp; <i class="far fa-clock"></i> 5 min read</div>
+        <div class="article-summary">
+          A practical guide to Git workflows, meaningful commit messages, branching strategies, and collaborative code review. Covers common pitfalls like merge conflicts and force-pushing to shared branches. Includes real examples from team projects during university and open-source contributions. Aimed at helping new graduates transition from solo coding to effective team-based development environments.
+        </div>
+        <a href="#" class="btn-read-more"><i class="fas fa-book-open"></i> Read Full Article</a>
+      </div>
+
+      <!-- Article 5 -->
+      <div class="article-card">
+        <div class="article-title">Climate Tech in Sub-Saharan Africa: Opportunities for Software Engineers</div>
+        <div class="article-meta"><i class="far fa-calendar-alt"></i> July 2024 &nbsp;|&nbsp; <i class="far fa-clock"></i> 7 min read</div>
+        <div class="article-summary">
+          Explores emerging roles for technologists in climate adaptation, renewable energy monitoring, and carbon tracking. Profiles successful startups using satellite data, mobile money integration for climate insurance, and community-driven reporting platforms. Discusses required technical stacks and partnership opportunities with NGOs and research institutions. Calls for more open climate datasets localized to African contexts.
+        </div>
+        <a href="#" class="btn-read-more"><i class="fas fa-book-open"></i> Read Full Article</a>
+      </div>
+    </div>
+
+    <footer>
+      <i class="far fa-copyright"></i> 2025 Reginald Last — Computer Science Graduate & Aspiring Software Engineer. Built with <i class="fas fa-heart" style="color:#2c7a5e;"></i> for opportunities & collaboration.
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.nav-toggle');
+      const menu = document.querySelector('.nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => menu.classList.toggle('active'));
+      }
+    });
+  </script>
+</body>
+</html>
