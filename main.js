@@ -1,30 +1,4 @@
-// ========================
-// Mobile Dropdown Toggle (for touch devices)
-// ========================
-const dropdownToggle = document.querySelector('.dropdown-toggle');
-const dropdown = document.querySelector('.dropdown');
-
-if (dropdownToggle && window.innerWidth <= 768) {
-  dropdownToggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    dropdown.classList.toggle('active');
-  });
-}
-
-// Close dropdown when clicking outside (for mobile)
-document.addEventListener('click', function(e) {
-  if (window.innerWidth <= 768 && dropdown && !dropdown.contains(e.target)) {
-    dropdown.classList.remove('active');
-  }
-});
-
-// Handle window resize - reset dropdown state
-window.addEventListener('resize', function() {
-  if (window.innerWidth > 768 && dropdown) {
-    dropdown.classList.remove('active');
-  }
-});
-// main.js - Enhanced version
+// main.js - Complete version with dropdown support
 document.addEventListener('DOMContentLoaded', function() {
     // ========================
     // 1. Mobile Navbar Toggle
@@ -47,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Close mobile menu when clicking a link
-    const allNavLinks = document.querySelectorAll('.nav-link');
+    const allNavLinks = document.querySelectorAll('.nav-link, .dropdown-item');
     allNavLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (navMenu && navMenu.classList.contains('active')) {
@@ -62,13 +36,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ========================
-    // 2. Active link highlighting (only for same-page sections)
+    // 2. Dropdown handling for mobile
+    // ========================
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdown = document.querySelector('.dropdown');
+    
+    if (dropdownToggle) {
+        // For mobile devices, make dropdown toggle clickable
+        dropdownToggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    }
+    
+    // Close dropdown when clicking outside (for mobile)
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && dropdown && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+    
+    // Handle window resize - reset dropdown state
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && dropdown) {
+            dropdown.classList.remove('active');
+        }
+    });
+    
+    // ========================
+    // 3. Active link highlighting (ONLY for same-page anchor links)
     // ========================
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
     
     function updateActiveLink() {
-        // Only run on index.html (where sections exist)
         if (sections.length === 0) return;
         
         const scrollPosition = window.scrollY + 120;
@@ -82,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
+        const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            // Only handle internal anchor links
-            if (href && href.startsWith('#')) {
+            if (href && href.startsWith('#') && href !== '#') {
                 const targetId = href.substring(1);
                 if (targetId === current) {
                     link.classList.add('active');
@@ -100,17 +102,27 @@ document.addEventListener('DOMContentLoaded', function() {
     updateActiveLink();
     
     // ========================
-    // 3. Smooth scrolling for anchor links (only internal)
+    // 4. Smooth scrolling ONLY for anchor links
     // ========================
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('#') && href !== '#') {
+    const anchorLinks = document.querySelectorAll('.nav-link[href^="#"]');
+    anchorLinks.forEach(link => {
+        if (link.getAttribute('href') !== '#') {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 
                 if (targetElement) {
+                    // Close mobile menu if open
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        const icon = navToggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                    
                     targetElement.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -121,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ========================
-    // 4. Contact Button with copy to clipboard
+    // 5. Contact Button with copy to clipboard
     // ========================
     const contactBtn = document.getElementById('contactBtn');
     if (contactBtn) {
@@ -154,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ========================
-    // 5. Card fade-in animation with Intersection Observer
+    // 6. Card fade-in animation
     // ========================
     const cards = document.querySelectorAll('.card');
     if (cards.length > 0 && 'IntersectionObserver' in window) {
@@ -182,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ========================
-    // 6. External links security
+    // 7. External links security
     // ========================
     const externalLinks = document.querySelectorAll('a[href*="github.com"], a[href*="linkedin.com"], a[href*="facebook.com"]');
     externalLinks.forEach(link => {
@@ -193,41 +205,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ========================
-    // 7. Profile image fallback handler
+    // 8. Profile image fallback handler
     // ========================
     const profileImg = document.getElementById('profileImg');
     if (profileImg) {
         profileImg.addEventListener('error', function() {
             this.src = 'https://placehold.co/400x400/0a1e3c/white?text=Reginald+Last';
             this.alt = 'Reginald Last - Profile Placeholder';
-        });
-    }
-    
-    // ========================
-    // 8. Lazy load Facebook iframes on scroll (performance)
-    // ========================
-    const facebookIframes = document.querySelectorAll('.facebook-embed-wrapper iframe');
-    if (facebookIframes.length > 0 && 'IntersectionObserver' in window) {
-        const iframeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const iframe = entry.target;
-                    const src = iframe.getAttribute('data-src');
-                    if (src && !iframe.src) {
-                        iframe.src = src;
-                    }
-                    iframeObserver.unobserve(iframe);
-                }
-            });
-        }, { rootMargin: '200px' });
-        
-        facebookIframes.forEach(iframe => {
-            const originalSrc = iframe.src;
-            if (originalSrc) {
-                iframe.setAttribute('data-src', originalSrc);
-                iframe.removeAttribute('src');
-                iframeObserver.observe(iframe);
-            }
         });
     }
     
