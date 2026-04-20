@@ -1,3 +1,29 @@
+// ========================
+// Mobile Dropdown Toggle (for touch devices)
+// ========================
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdown = document.querySelector('.dropdown');
+
+if (dropdownToggle && window.innerWidth <= 768) {
+  dropdownToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    dropdown.classList.toggle('active');
+  });
+}
+
+// Close dropdown when clicking outside (for mobile)
+document.addEventListener('click', function(e) {
+  if (window.innerWidth <= 768 && dropdown && !dropdown.contains(e.target)) {
+    dropdown.classList.remove('active');
+  }
+});
+
+// Handle window resize - reset dropdown state
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768 && dropdown) {
+    dropdown.classList.remove('active');
+  }
+});
 // main.js - Enhanced version
 document.addEventListener('DOMContentLoaded', function() {
     // ========================
