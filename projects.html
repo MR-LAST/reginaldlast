@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Reginald Last - Software Engineering Projects Portfolio">
+  <title>Projects | Reginald Last</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">RL<span class="logo-dot">.</span></a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#qualifications" class="nav-link">Qualifications</a></li>
+        <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="projects.html" class="nav-link active">Projects</a></li>
+        <li><a href="articles.html" class="nav-link">Articles</a></li>
+        <li><a href="affiliations.html" class="nav-link">Affiliations</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section style="padding: 2rem 0 1rem;">
+      <div class="section-header">
+        <h1><i class="fas fa-code-branch"></i> Featured Projects</h1>
+        <p>Showcasing my software engineering work — each project includes a full description and GitHub repository link</p>
+      </div>
+    </section>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-title">AgriTrack Zambia</div>
+        <div class="project-tech">
+          <span class="tech-badge">React</span>
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">MongoDB</span>
+          <span class="tech-badge">Leaflet Maps</span>
+        </div>
+        <div class="project-description">
+          A full-stack farm management platform for smallholder farmers in Zambia. Enables crop tracking, weather alerts, and market price aggregation. Features real-time data visualization and offline support for rural areas. The system integrates with local agricultural extension services to provide personalized recommendations based on soil and climate data. Built with accessibility in mind for low-bandwidth environments.
+        </div>
+        <a href="https://github.com/MR-LAST/AgriTrack-Zambia" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <i class="fab fa-github"></i> GitHub Repository
+        </a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-title">HealthData Pipeline</div>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">Pandas</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">Apache Airflow</span>
+        </div>
+        <div class="project-description">
+          ETL pipeline for anonymized public health records, designed to support disease surveillance in low-resource settings. Automates data cleaning, aggregation, and generates outbreak risk dashboards. Includes data validation rules and compliance with health data privacy standards. Successfully processed over 100,000 patient records during pilot testing with a local health district.
+        </div>
+        <a href="https://github.com/MR-LAST/HealthData-Pipeline" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <i class="fab fa-github"></i> GitHub Repository
+        </a>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-title">Smart Irrigation Controller</div>
+        <div class="project-tech">
+          <span class="tech-badge">Arduino C++</span>
+          <span class="tech-badge">IoT</span>
+          <span class="tech-badge">Firebase</span>
+          <span class="tech-badge">React Native</span>
+        </div>
+        <div class="project-description">
+          IoT-based automated irrigation system using soil moisture sensors and weather API integration. Reduces water waste by up to 40% through adaptive scheduling. Includes a mobile app for remote monitoring and manual overrides. The system was tested on a demonstration farm in Lusaka and received positive feedback from local farmers for its ease of use and water savings.
+        </div>
+        <a href="https://github.com/MR-LAST/Smart-Irrigation-Controller" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <i class="fab fa-github"></i> GitHub Repository
+        </a>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div class="project-title">Climate Risk Dashboard</div>
+        <div class="project-tech">
+          <span class="tech-badge">D3.js</span>
+          <span class="tech-badge">Flask</span>
+          <span class="tech-badge">GeoJSON</span>
+          <span class="tech-badge">Open-Meteo API</span>
+        </div>
+        <div class="project-description">
+          Interactive dashboard visualizing climate vulnerability indices across Southern Africa. Displays historical temperature trends, flood risk zones, and drought probability. Helps NGOs and policymakers prioritize intervention areas. Features exportable reports and scenario modeling for different climate change projections up to 2050.
+        </div>
+        <a href="https://github.com/MR-LAST/Climate-Risk-Dashboard" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <i class="fab fa-github"></i> GitHub Repository
+        </a>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <div class="project-title">DevOps Monitoring Stack</div>
+        <div class="project-tech">
+          <span class="tech-badge">Prometheus</span>
+          <span class="tech-badge">Grafana</span>
+          <span class="tech-badge">Docker</span>
+          <span class="tech-badge">Terraform</span>
+        </div>
+        <div class="project-description">
+          Infrastructure-as-code monitoring solution for containerized applications. Automatically deploys Prometheus exporters, sets up alerting rules, and visualizes metrics through custom Grafana dashboards. Includes automated health checks and incident response playbooks. Designed to reduce mean time to detection (MTTD) for production issues in small to medium teams.
+        </div>
+        <a href="https://github.com/MR-LAST/DevOps-Monitoring-Stack" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <i class="fab fa-github"></i> GitHub Repository
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <i class="far fa-copyright"></i> 2025 Reginald Last — Computer Science Graduate & Aspiring Software Engineer. Built with <i class="fas fa-heart" style="color:#2c7a5e;"></i> for opportunities & collaboration.
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.nav-toggle');
+      const menu = document.querySelector('.nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => menu.classList.toggle('active'));
+      }
+    });
+  </script>
+</body>
+</html>
