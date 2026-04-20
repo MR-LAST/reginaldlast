@@ -1,4 +1,4 @@
-// main.js
+// main.js - Enhanced version
 document.addEventListener('DOMContentLoaded', function() {
     // ========================
     // 1. Mobile Navbar Toggle
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navToggle) {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
-            // Toggle icon between bars and times
             const icon = navToggle.querySelector('i');
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
@@ -21,15 +20,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Close mobile menu when clicking a link
+    const allNavLinks = document.querySelectorAll('.nav-link');
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                const icon = navToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+    });
+    
     // ========================
-    // 2. Active link highlighting on scroll (Scroll Spy)
+    // 2. Active link highlighting (only for same-page sections)
     // ========================
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     
     function updateActiveLink() {
+        // Only run on index.html (where sections exist)
+        if (sections.length === 0) return;
+        
+        const scrollPosition = window.scrollY + 120;
         let current = '';
-        const scrollPosition = window.scrollY + 100;
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -40,10 +57,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         navLinks.forEach(link => {
-            link.classList.remove('active');
-            const href = link.getAttribute('href').substring(1);
-            if (href === current) {
-                link.classList.add('active');
+            const href = link.getAttribute('href');
+            // Only handle internal anchor links
+            if (href && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                if (targetId === current) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
             }
         });
     }
@@ -52,87 +74,61 @@ document.addEventListener('DOMContentLoaded', function() {
     updateActiveLink();
     
     // ========================
-    // 3. Smooth scrolling for nav links
+    // 3. Smooth scrolling for anchor links (only internal)
     // ========================
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                // Close mobile menu if open
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    const icon = navToggle.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#') && href !== '#') {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
                 
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
     });
     
     // ========================
-    // 4. Contact Button Interaction
+    // 4. Contact Button with copy to clipboard
     // ========================
     const contactBtn = document.getElementById('contactBtn');
     if (contactBtn) {
         contactBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            const userConfirmed = confirm(
-                "📧 Reach out to Reginald Last:\n\n" +
-                "Email: reginaldlast19@gmail.com\n" +
-                "Phone: +260 978 371837\n\n" +
-                "Click OK to copy email address to clipboard."
-            );
-            
-            if (userConfirmed) {
-                navigator.clipboard.writeText("reginaldlast19@gmail.com")
-                    .then(() => {
-                        showTemporaryMessage("✅ Email copied to clipboard!", "#2c7a5e");
-                    })
-                    .catch(() => {
-                        alert("Email: reginaldlast19@gmail.com | Phone: +260978371837");
-                    });
-            }
+            navigator.clipboard.writeText("reginaldlast19@gmail.com")
+                .then(() => {
+                    showToastMessage("✅ Email copied to clipboard!", "#2563eb");
+                })
+                .catch(() => {
+                    showToastMessage("📧 reginaldlast19@gmail.com | 📞 +260978371837", "#0a1e3c");
+                });
         });
     }
     
-    function showTemporaryMessage(message, bgColor = "#0b2b26") {
+    function showToastMessage(message, bgColor = "#0a1e3c") {
         let toast = document.querySelector('.custom-toast-message');
-        if (!toast) {
-            toast = document.createElement('div');
-            toast.className = 'custom-toast-message';
-            toast.style.position = 'fixed';
-            toast.style.bottom = '20px';
-            toast.style.left = '50%';
-            toast.style.transform = 'translateX(-50%)';
-            toast.style.backgroundColor = bgColor;
-            toast.style.color = 'white';
-            toast.style.padding = '12px 24px';
-            toast.style.borderRadius = '40px';
-            toast.style.fontSize = '0.9rem';
-            toast.style.fontWeight = '500';
-            toast.style.zIndex = '9999';
-            toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-            toast.style.fontFamily = "'Inter', sans-serif";
-            document.body.appendChild(toast);
-        }
+        if (toast) toast.remove();
+        
+        toast = document.createElement('div');
+        toast.className = 'custom-toast-message';
+        toast.style.backgroundColor = bgColor;
         toast.textContent = message;
-        toast.style.display = 'block';
+        document.body.appendChild(toast);
         
         setTimeout(() => {
-            toast.style.display = 'none';
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 300);
         }, 2500);
     }
     
     // ========================
-    // 5. Card fade-in animation
+    // 5. Card fade-in animation with Intersection Observer
     // ========================
     const cards = document.querySelectorAll('.card');
     if (cards.length > 0 && 'IntersectionObserver' in window) {
@@ -148,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         cards.forEach(card => {
             card.style.opacity = '0';
-            card.style.transform = 'translateY(12px)';
-            card.style.transition = 'opacity 0.45s ease-out, transform 0.45s ease-out';
+            card.style.transform = 'translateY(15px)';
+            card.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
             observer.observe(card);
         });
     } else {
@@ -162,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================
     // 6. External links security
     // ========================
-    const externalLinks = document.querySelectorAll('a[href*="github.com"], a[href*="linkedin.com"]');
+    const externalLinks = document.querySelectorAll('a[href*="github.com"], a[href*="linkedin.com"], a[href*="facebook.com"]');
     externalLinks.forEach(link => {
         if (!link.getAttribute('target')) {
             link.setAttribute('target', '_blank');
@@ -170,5 +166,44 @@ document.addEventListener('DOMContentLoaded', function() {
         link.setAttribute('rel', 'noopener noreferrer');
     });
     
-    console.log("🎓 Reginald Last Portfolio | Aspiring Software Engineer — Thanks for visiting!");
+    // ========================
+    // 7. Profile image fallback handler
+    // ========================
+    const profileImg = document.getElementById('profileImg');
+    if (profileImg) {
+        profileImg.addEventListener('error', function() {
+            this.src = 'https://placehold.co/400x400/0a1e3c/white?text=Reginald+Last';
+            this.alt = 'Reginald Last - Profile Placeholder';
+        });
+    }
+    
+    // ========================
+    // 8. Lazy load Facebook iframes on scroll (performance)
+    // ========================
+    const facebookIframes = document.querySelectorAll('.facebook-embed-wrapper iframe');
+    if (facebookIframes.length > 0 && 'IntersectionObserver' in window) {
+        const iframeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const iframe = entry.target;
+                    const src = iframe.getAttribute('data-src');
+                    if (src && !iframe.src) {
+                        iframe.src = src;
+                    }
+                    iframeObserver.unobserve(iframe);
+                }
+            });
+        }, { rootMargin: '200px' });
+        
+        facebookIframes.forEach(iframe => {
+            const originalSrc = iframe.src;
+            if (originalSrc) {
+                iframe.setAttribute('data-src', originalSrc);
+                iframe.removeAttribute('src');
+                iframeObserver.observe(iframe);
+            }
+        });
+    }
+    
+    console.log("🎓 Reginald Last Portfolio | Ready for opportunities!");
 });
