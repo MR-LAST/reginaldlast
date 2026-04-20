@@ -8,6 +8,96 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional styles for quick links and section navigation */
+    .quick-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0 0;
+    }
+    
+    .quick-link-btn {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .quick-link-btn:hover {
+      background: #3b82f6;
+      transform: translateY(-2px);
+      border-color: #3b82f6;
+    }
+    
+    .page-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin: 2rem 0 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .page-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: #f0f4f8;
+      color: #0a1e3c;
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .page-link i {
+      color: #3b82f6;
+      font-size: 1rem;
+    }
+    
+    .page-link:hover {
+      background: #3b82f6;
+      color: white;
+      transform: translateY(-2px);
+      border-color: #3b82f6;
+    }
+    
+    .page-link:hover i {
+      color: white;
+    }
+    
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .quick-link-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+      }
+      
+      .page-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+      }
+      
+      .page-links {
+        gap: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,19 +107,9 @@
         <a href="index.html">RL<span class="logo-dot">.</span></a>
       </div>
       <ul class="nav-menu">
-        <!-- Dropdown for main pages -->
-        <li class="dropdown">
-          <a href="#" class="nav-link dropdown-toggle">
-            Menu <i class="fas fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="index.html" class="dropdown-item"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="projects.html" class="dropdown-item"><i class="fas fa-code-branch"></i> Projects</a></li>
-            <li><a href="articles.html" class="dropdown-item"><i class="fas fa-newspaper"></i> Articles</a></li>
-            <li><a href="affiliations.html" class="dropdown-item"><i class="fas fa-handshake"></i> Affiliations</a></li>
-          </ul>
-        </li>
+        <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#qualifications" class="nav-link">Qualifications</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#facebook-posts" class="nav-link">Posts</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
@@ -40,6 +120,7 @@
   </nav>
 
   <div class="container">
+    <!-- Hero Section -->
     <section id="home">
       <div class="hero">
         <div class="hero-main">
@@ -55,6 +136,12 @@
               <a href="https://github.com/MR-LAST/Public-Projects" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
               <a href="https://www.linkedin.com/in/reginald-last-9097a3298/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
+            <!-- Quick Links to Other Pages -->
+            <div class="quick-links">
+              <a href="projects.html" class="quick-link-btn"><i class="fas fa-code-branch"></i> Projects</a>
+              <a href="articles.html" class="quick-link-btn"><i class="fas fa-newspaper"></i> Articles</a>
+              <a href="affiliations.html" class="quick-link-btn"><i class="fas fa-handshake"></i> Affiliations</a>
+            </div>
             <div class="button-group">
               <button id="contactBtn" class="btn-outline-light"><i class="fas fa-paper-plane"></i> Contact me</button>
             </div>
@@ -67,8 +154,18 @@
       </div>
     </section>
 
+    <!-- Page Navigation Links -->
+    <div class="page-links">
+      <a href="projects.html" class="page-link"><i class="fas fa-code-branch"></i> View My Projects</a>
+      <a href="articles.html" class="page-link"><i class="fas fa-newspaper"></i> Read My Articles</a>
+      <a href="affiliations.html" class="page-link"><i class="fas fa-handshake"></i> Professional Affiliations</a>
+    </div>
+
+    <!-- Main two-column layout -->
     <div class="two-col">
+      <!-- LEFT COLUMN -->
       <div>
+        <!-- Profile summary card -->
         <section id="about">
           <div class="card">
             <div class="card-title">
@@ -80,6 +177,7 @@
           </div>
         </section>
 
+        <!-- Personal & languages -->
         <div class="card">
           <div class="card-title">
             <i class="fas fa-id-card"></i> Personal Info
@@ -95,6 +193,7 @@
           </ul>
         </div>
 
+        <!-- Interests -->
         <div class="card">
           <div class="card-title">
             <i class="fas fa-heart"></i> Interests & Focus
@@ -110,7 +209,9 @@
         </div>
       </div>
 
+      <!-- RIGHT COLUMN -->
       <div>
+        <!-- Main qualifications -->
         <section id="qualifications">
           <div class="card">
             <div class="card-title">
@@ -129,6 +230,7 @@
           </div>
         </section>
 
+        <!-- Certifications -->
         <div class="card">
           <div class="card-title">
             <i class="fas fa-certificate"></i> Certifications & Training
@@ -144,6 +246,7 @@
           </div>
         </div>
 
+        <!-- Basic Education -->
         <div class="card">
           <div class="card-title">
             <i class="fas fa-school"></i> Basic & Secondary Education
@@ -154,6 +257,7 @@
           </ul>
         </div>
 
+        <!-- Work Experience -->
         <section id="experience">
           <div class="card">
             <div class="card-title">
@@ -186,6 +290,7 @@
           </div>
         </section>
 
+        <!-- Core Competencies -->
         <div class="card">
           <div class="card-title">
             <i class="fas fa-laptop-code"></i> Core Competencies
@@ -204,6 +309,7 @@
       </div>
     </div>
 
+    <!-- Facebook Posts Section -->
     <section id="facebook-posts">
       <div class="section-header">
         <h2><i class="fab fa-facebook"></i> Featured Facebook Posts</h2>
@@ -231,6 +337,7 @@
       </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
       <div class="contact-footer">
         <h2><i class="fas fa-envelope"></i> Get In Touch</h2>
@@ -243,7 +350,13 @@
       </div>
     </section>
 
+    <!-- Footer with additional links -->
     <footer>
+      <div style="margin-bottom: 1rem;">
+        <a href="projects.html" style="color: #3b82f6; text-decoration: none; margin: 0 0.5rem;">Projects</a> |
+        <a href="articles.html" style="color: #3b82f6; text-decoration: none; margin: 0 0.5rem;">Articles</a> |
+        <a href="affiliations.html" style="color: #3b82f6; text-decoration: none; margin: 0 0.5rem;">Affiliations</a>
+      </div>
       <i class="far fa-copyright"></i> 2025 Reginald Last — Computer Science Graduate & Aspiring Software Engineer. Built with <i class="fas fa-heart" style="color:#2c7a5e;"></i> for opportunities & collaboration.
     </footer>
   </div>
